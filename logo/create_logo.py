@@ -97,21 +97,25 @@ print(f'Writing file {filename}')
 fig.savefig(filename, transparent=True)
 
 # Logo and name, horizontal.
-fig = plt.figure(figsize=(2.55, 0.75))
-ax = fig.add_axes([0, 0, 1, 1], aspect='equal')
-plot_logo(ax, svg_linewidth)
-ax.text(0.95, 0.5, 'ContourPy', font=font_path, fontsize=28, ha='left', va='center_baseline', c="#000000")
-ax.set_xlim(0.0, 3.4)
-filename = full_output_filename('contourpy_logo_horiz.svg')
-print(f'Writing file {filename}')
-fig.savefig(filename, transparent=True)
+for text_color, suffix in [("black", ""), ("white", "_white")]:
+    fig = plt.figure(figsize=(2.55, 0.75))
+    ax = fig.add_axes([0, 0, 1, 1], aspect='equal')
+    plot_logo(ax, svg_linewidth)
+    ax.text(0.95, 0.5, 'ContourPy', font=font_path, fontsize=28, ha='left', va='center_baseline',
+            c=text_color)
+    ax.set_xlim(0.0, 3.4)
+    filename = full_output_filename(f'contourpy_logo_horiz{suffix}.svg')
+    print(f'Writing file {filename}')
+    fig.savefig(filename, transparent=True)
 
 # Logo and name, vertical.
-fig = plt.figure(figsize=(2.0, 1.1))
-ax = fig.add_axes([0, 0, 1, 1], aspect='equal')
-plot_logo(ax, svg_linewidth)
-ax.text(0.5, 0.05, 'ContourPy', font=font_path, fontsize=28, ha='center', va='top', c="#000000")
-ax.set_ylim(-0.5, 1.0)
-filename = full_output_filename('contourpy_logo_vert.svg')
-print(f'Writing file {filename}')
-fig.savefig(filename, transparent=True)
+for text_color, suffix in [("black", ""), ("white", "_white")]:
+    fig = plt.figure(figsize=(2.0, 1.1))
+    ax = fig.add_axes([0, 0, 1, 1], aspect='equal')
+    plot_logo(ax, svg_linewidth)
+    ax.text(0.5, 0.05, 'ContourPy', font=font_path, fontsize=28, ha='center', va='top',
+            c=text_color)
+    ax.set_ylim(-0.5, 1.0)
+    filename = full_output_filename(f'contourpy_logo_vert{suffix}.svg')
+    print(f'Writing file {filename}')
+    fig.savefig(filename, transparent=True)
