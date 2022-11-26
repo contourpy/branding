@@ -22,6 +22,7 @@ png_linewidth = 1.0
 
 # Colors are colorbrewer RdYlGn palette.
 colors = ["#1a9641", "#a6d96a", "#ffffbf", "#fdae61", "#d7191c"]
+off_white = "#efefef"
 
 
 def full_output_filename(filename):
@@ -97,7 +98,7 @@ print(f'Writing file {filename}')
 fig.savefig(filename, transparent=True)
 
 # Logo and name, horizontal.
-for text_color, suffix in [("black", ""), ("white", "_white")]:
+for text_color, suffix in [("black", ""), (off_white, "_white")]:
     fig = plt.figure(figsize=(2.55, 0.75))
     ax = fig.add_axes([0, 0, 1, 1], aspect='equal')
     plot_logo(ax, svg_linewidth)
@@ -109,7 +110,7 @@ for text_color, suffix in [("black", ""), ("white", "_white")]:
     fig.savefig(filename, transparent=True)
 
 # Logo and name, vertical.
-for text_color, suffix in [("black", ""), ("white", "_white")]:
+for text_color, suffix in [("black", ""), (off_white, "_white")]:
     fig = plt.figure(figsize=(2.0, 1.1))
     ax = fig.add_axes([0, 0, 1, 1], aspect='equal')
     plot_logo(ax, svg_linewidth)
